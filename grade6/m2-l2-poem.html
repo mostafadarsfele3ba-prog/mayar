@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>نص شعري: جنّةُ عُمانَ - الصف السادس</title>
+    <!-- استدعاء خط احترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1b4f9c;      
+            --primary-light: #2f6fd0; 
+            --secondary: #1e7b3a;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #ea7b1c;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #eef5ff;
+            background-image: radial-gradient(#c7d7f2 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #0d2a5c, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #fff1e0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.4rem, 5.5vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #f7a13a, #ea7b1c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #f3f7ff; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(240, 138, 36, 0.45); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #fff1e0, #fed7aa);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #1b4f9c; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #2f6fd0; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #1b4f9c;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #f08a24;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #0d2a5c, #1b4f9c);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #2f6fd0; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(224,231,255,0.9));
+            color: #1b4f9c;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23eef5ff" width="100%" height="100%"/><circle fill="%23dbe7fb" cx="20%" cy="30%" r="50"/><circle fill="%23dbe7fb" cx="80%" cy="60%" r="70"/><circle fill="%23dbe7fb" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #2f6fd0; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #f3f7ff; }
+
+        /* Genius Challenge Style */
+        .genius-wrap {
+            background: linear-gradient(135deg, #0d2a5c, #1b4f9c, #2f6fd0);
+            border-radius: 16px; padding: 20px; margin-top: 10px;
+            border: 4px solid #f7a13a; box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 20px rgba(27,79,156,0.35);
+        }
+        .genius-timer-track {
+            width: 100%; height: 14px; background: rgba(0,0,0,0.35);
+            border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .genius-timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(to right, #f7a13a, #2f6fd0, #ef4444);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .genius-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .genius-options { grid-template-columns: 1fr; } }
+        .genius-options .btn {
+            padding: 16px 10px; font-size: clamp(1rem, 3vw, 1.25rem);
+            background: linear-gradient(to bottom, #3b82f6, #1b4f9c);
+            border-bottom: 3px solid #0d2a5c; border-radius: 14px; min-height: 70px;
+        }
+        .genius-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(240, 138, 36, 0.15); color: #f7a13a;
+            font-weight: 800; padding: 6px 16px; border-radius: 20px;
+            border: 1px solid rgba(247,161,58,0.4); margin-bottom: 12px; font-size: 0.95rem;
+        }
+
+        /* Result Share (WhatsApp) */
+        .share-box {
+            margin-top: 25px; background: #f3f7ff; border: 2px solid #fed7aa;
+            border-radius: 16px; padding: 20px; text-align: center;
+        }
+        .share-box h4 { color: #1b4f9c; font-size: 1.2rem; margin-bottom: 12px; font-weight: 800;}
+        .share-name-input {
+            width: 100%; max-width: 320px; padding: 12px 16px; border-radius: 12px;
+            border: 2px solid #a8c1ee; font-size: 1.05rem; text-align: center;
+            font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .share-name-input:focus { outline: none; border-color: #2f6fd0; }
+        .btn-share {
+            background: linear-gradient(to bottom, #25d366, #1da851);
+            border-bottom-color: #128c3e; display: inline-flex; gap: 10px;
+        }
+        .share-warning { color: var(--danger); font-weight: 700; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+
+        .teacher-logo { width: 220px; height: 220px; border-radius: 30px; border: 4px solid var(--warning); box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: contain; padding: 6px; flex-shrink: 0; }
+        @media (max-width: 600px) { .teacher-logo { width: 150px; height: 150px; } }
+        .top-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+        .nav-pill { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(240,138,36,0.6); padding: 6px 16px; border-radius: 30px; transition: background 0.2s; }
+        .nav-pill:hover { background: rgba(240,138,36,0.3); }
+        .school-name { font-size: clamp(0.95rem, 3vw, 1.15rem); font-weight: 800; color: #fff; background: rgba(30,123,58,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 4px 18px; border-radius: 30px; margin: -6px 0 12px; }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر مع اللوجو -->
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div class="top-links"><a href="index.html" class="nav-pill">&#8594; دروس الصف السادس</a><a href="../index.html" class="nav-pill">الصفحة الرئيسية</a></div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- اللوجو (على اليمين) -->
+                <img src="../assets/logo.jpg" alt="شعار مدرسة دار المستقبل الخاصة" class="teacher-logo">
+                
+                <!-- النصوص -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        درس 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f7a13a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لعبة
+                    </h1>
+                    <h1 class="title-line2">مع أ. ميار غانم</h1>
+                    <div class="school-name">مدرسة دار المستقبل الخاصة</div>
+                    <h2>الصَّفُّ السادسُ - المحور الثاني: الوطنُ - الدرس الثاني</h2>
+                    <p style="margin-top: 10px;">نص شعري: جنّةُ عُمانَ</p>
+                </div>
+            </div>
+        </div>
+        <!-- تموجات زخرفية -->
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#eef5ff" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid">
+            <!-- سيتم حقن البطاقات هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 25</span>
+        </div>
+        <div class="game-container" id="game-container">
+            <!-- سيتم حقن الأسئلة هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الملاحظات السريعة -->
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | دروس وألعاب تعليمية</p>
+        <p class="designer">أ. ميار غانم — مدرسة دار المستقبل الخاصة</p>
+    </footer>
+
+    <!-- زر الواتساب -->
+    <script>
+    const LESSON_NAME = "الصف السادس - نص شعري: جنّةُ عُمانَ";
+    const allGamesData = [
+ {
+  "id": "mcq",
+  "title": "اختيار من متعدد",
+  "type": "mcq",
+  "desc": "أسئلة متنوعة حول جنّةُ عُمانَ",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"></polygon><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07\"></path></svg>",
+  "questions": [
+   {
+    "q": "شاعرُ قصيدةِ «جنّةُ عُمانَ» هو:",
+    "options": [
+     "معروف الرصافي",
+     "عبدالله الخليلي",
+     "أحمد شوقي",
+     "خالد بن مهنا البطاشي"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الشاعرُ خالد البطاشي:",
+    "options": [
+     "شاعرٌ عراقيٌّ",
+     "شاعرٌ وفقيهٌ وقاضٍ عمانيٌّ",
+     "شاعرٌ مصريٌّ",
+     "شاعرٌ فلسطينيٌّ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "وصفَ الشاعرُ «ظفار» بأنّها:",
+    "options": [
+     "صحراءُ واسعةٌ",
+     "جنّةُ الدنيا",
+     "جبالٌ قاحلةٌ",
+     "مدينةٌ صغيرةٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "وصفَ الليالي التي قضاها في ظفارَ بأنّها:",
+    "options": [
+     "مظلمةٌ",
+     "طويلةٌ",
+     "حزينةٌ",
+     "قصارٌ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "شبّهَ الشاعرُ هواءَ ظفارَ في لطفِهِ بـ:",
+    "options": [
+     "صفوِ الماءِ",
+     "لهيبِ النارِ",
+     "صخورِ الجبلِ",
+     "رمالِ الصحراءِ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«روضاتٌ تُباهي الخلدَ دارا» معنى «تُباهي»:",
+    "options": [
+     "تُفاخرُ",
+     "تُخاصمُ",
+     "تُحاربُ",
+     "تُسابقُ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "جنّةُ ظفارَ كما في البيتِ الرابعِ:",
+    "options": [
+     "نزوى",
+     "مسقطُ",
+     "صورُ",
+     "صلالةُ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«تعالى وصفُها من أنْ يُبارى» معنى «يُبارى»:",
+    "options": [
+     "يُكتَبُ",
+     "يُنسى",
+     "يُرى",
+     "يُنافَسُ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الزهورُ في حدائقِ صلالةَ:",
+    "options": [
+     "زرقٌ وسودٌ",
+     "صفرٌ فقط",
+     "بيضٌ فقط",
+     "حمرٌ وخضرٌ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "إذا ذكرَ الناسُ رُبى لبنانَ حسنًا ذكرَ الشاعرُ:",
+    "options": [
+     "ظفارَ مفضّلًا لها",
+     "الجبلَ الأخضرَ",
+     "مسقطَ",
+     "بيروتَ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "تكادُ قصورُ صلالةَ:",
+    "options": [
+     "تختفي في الرمالِ",
+     "تلامسُ البحرَ",
+     "تسايرُ الفلكَ المدارا",
+     "تسقطُ من الريحِ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "«بلادٌ قد سمتْ شرفًا ومجدًا» معنى «سمتْ»:",
+    "options": [
+     "ابتعدتْ",
+     "تعبتْ",
+     "انخفضتْ",
+     "علتْ وارتفعتْ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "صاغَ ظفارَ تاجًا وكلّلَها انتصارًا وافتخارًا:",
+    "options": [
+     "التجّارُ",
+     "أهلُ لبنانَ",
+     "السلطانُ قابوس",
+     "الشاعرُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الفكرةُ العامّةُ للنصِّ:",
+    "options": [
+     "وصفُ جمالِ ظفارَ وصلالةَ والفخرُ بعمانَ",
+     "وصفُ الصحراءِ",
+     "مدحُ البحرِ فقط",
+     "الحنينُ إلى لبنانَ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "البيتُ الذي يتغنّى فيهِ الشاعرُ بأيّامِهِ القصارِ في ظفارَ:",
+    "options": [
+     "البيتُ الأوّلُ",
+     "البيتُ العاشرُ",
+     "البيتُ السابعُ",
+     "البيتُ الرابعُ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "البيتُ الذي يذكرُ أنّ جمالَ صلالةَ لا ينافسُهُ جمالٌ:",
+    "options": [
+     "البيتُ الرابعُ",
+     "البيتُ الثامنُ",
+     "البيتُ الأوّلُ",
+     "البيتُ التاسعُ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الجذرُ الثلاثيُّ لكلمةِ «روضات»:",
+    "options": [
+     "ر و ض",
+     "و ض ت",
+     "ر ض ت",
+     "ر و ت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الحروفُ الزائدةُ في «روضات»:",
+    "options": [
+     "ا ت",
+     "و ض",
+     "ض ا",
+     "ر و"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الجذرُ الثلاثيُّ لكلمةِ «انتصارا»:",
+    "options": [
+     "ن ص ر",
+     "ت ص ر",
+     "ن ت ص",
+     "ا ن ت"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلمتانِ متقاربتانِ في الحروفِ والوزنِ في القصيدةِ:",
+    "options": [
+     "حمرٌ وخضرٌ",
+     "قصور وتاج",
+     "ازدهاءً وازدهارًا",
+     "ظفار وصلالة"
+    ],
+    "ans": 2
+   }
+  ]
+ },
+ {
+  "id": "bubbles",
+  "title": "الفقاعات المتساقطة",
+  "type": "bubbles",
+  "desc": "التقط الفقاعة ذات الإجابة الصحيحة قبل أن تسقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+  "questions": [
+   {
+    "q": "الشاعرُ:",
+    "options": [
+     "خالد البطاشي",
+     "الخليلي",
+     "شوقي",
+     "الرصافي"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "جنّةُ الدنيا:",
+    "options": [
+     "مسقط",
+     "ظفار",
+     "لبنان",
+     "نزوى"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "جنّةُ ظفارَ:",
+    "options": [
+     "بهلا",
+     "صور",
+     "صحار",
+     "صلالة"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "معنى «تُباهي»:",
+    "options": [
+     "تَنامُ",
+     "تُخاصمُ",
+     "تُفاخرُ",
+     "تَبكي"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "معنى «يُبارى»:",
+    "options": [
+     "يُرى",
+     "يُنسى",
+     "يُنافَسُ",
+     "يُكتَبُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "معنى «سمتْ»:",
+    "options": [
+     "هبطتْ",
+     "علتْ",
+     "بكتْ",
+     "نامتْ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "معنى «نضارا»:",
+    "options": [
+     "حُسنًا ونضارةً",
+     "ذبولًا",
+     "بُعدًا",
+     "ظلامًا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "معنى «الخُلد»:",
+    "options": [
+     "النهرُ",
+     "الجبلُ",
+     "البحرُ",
+     "الجنّةُ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "معنى «الروض»:",
+    "options": [
+     "الأرضُ المخضرّةُ",
+     "الصحراءُ",
+     "البحرُ",
+     "الجبلُ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "معنى «جُلّنار»:",
+    "options": [
+     "نهرٌ",
+     "زهرُ الرمّانِ",
+     "طائرٌ",
+     "حجرٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "جذرُ «روضات»:",
+    "options": [
+     "ر ض ت",
+     "ر و ت",
+     "و ض ت",
+     "ر و ض"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "جذرُ «انتصارا»:",
+    "options": [
+     "ن ت ص",
+     "ت ص ر",
+     "ن ص ر",
+     "ا ن ت"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "لياليهِ في ظفارَ:",
+    "options": [
+     "طوالٌ",
+     "حزينةٌ",
+     "قصارٌ",
+     "باردةٌ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "هواؤُها مثلُ:",
+    "options": [
+     "الغبارِ",
+     "الحجرِ",
+     "صفوِ الماءِ",
+     "النارِ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "لونا الزهورِ:",
+    "options": [
+     "بنّيٌّ ورماديٌّ",
+     "سودٌ وبيضٌ",
+     "زرقٌ وصفرٌ",
+     "حمرٌ وخضرٌ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "من حقلِ الطبيعةِ:",
+    "options": [
+     "التاجُ",
+     "الأزهارُ",
+     "المليكُ",
+     "القصورُ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "من حقلِ الطبيعةِ:",
+    "options": [
+     "الفلكُ",
+     "الحدائقُ",
+     "الانتصارُ",
+     "الشرفُ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "صاغَها تاجًا:",
+    "options": [
+     "الشاعرُ",
+     "التجّارُ",
+     "لبنانُ",
+     "قابوس"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "قافيةُ القصيدةِ تنتهي بـ:",
+    "options": [
+     "ـامة",
+     "ـات",
+     "ـارا",
+     "ـين"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "المحورُ:",
+    "options": [
+     "دنيا العلومِ",
+     "الوطنُ",
+     "أعمالٌ ومهنٌ",
+     "الأسرةُ والمجتمعُ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "shooting",
+  "title": "التنشين والاصطياد",
+  "type": "shooting",
+  "desc": "صوّب نحو الإجابة الصحيحة واصطدها",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+  "questions": [
+   {
+    "q": "أكملْ: «بنفسي جنّةَ الدنيا (ظفارا) وليلاتٍ مررْنَ بها ......».",
+    "options": [
+     "دارا",
+     "قِصارا",
+     "نُضارا",
+     "عِمارا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أكملْ: «هيَ الروضُ المليءُ بكلِّ حسنٍ ترى الأزهارَ مشرقةً ......».",
+    "options": [
+     "دارا",
+     "قِصارا",
+     "المدارا",
+     "نُضارا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أكملْ: «هواها مثلُ صفوِ الماءِ لطفًا وروضاتٌ تُباهي الخُلدَ ......».",
+    "options": [
+     "جُلَّنارا",
+     "دارا",
+     "نُضارا",
+     "قِصارا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أكملْ: «وجنّتُها (صلالةُ) وهْيَ أرضٌ تعالى وصفُها من أنْ ......».",
+    "options": [
+     "يُزارا",
+     "يُدارا",
+     "يُبارى",
+     "يُثارا"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "أكملْ: «زهورُ حدائقٍ حمرٌ وخضرٌ فمنْ وردٍ يعانقُ ......».",
+    "options": [
+     "جُلَّنارا",
+     "عِمارا",
+     "نُضارا",
+     "ظفارا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أكملْ: «متى ذكروا رُبى لبنانَ حسنًا ذكرتُ مفضِّلًا عنها ......».",
+    "options": [
+     "دارا",
+     "لبنانا",
+     "صلالةَ",
+     "ظفارا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أكملْ: «وكمْ تحوي (صلالةُ) من قصورٍ تكادُ تسايرُ الفلكَ ......».",
+    "options": [
+     "المدارا",
+     "قِصارا",
+     "دارا",
+     "نُضارا"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "أكملْ: «بلادٌ قد سمتْ شرفًا ومجدًا وحسبُكَ حسنُها السامي ......».",
+    "options": [
+     "دارا",
+     "قِصارا",
+     "نُضارا",
+     "عِمارا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أكملْ: «بلادٌ صاغَها (قابوسُ) تاجًا وكلّلَها انتصارًا و......».",
+    "options": [
+     "عِمارا",
+     "افتخارا",
+     "ازدهارا",
+     "نُضارا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "أكملْ: «وشرّفَها الإلهُ بهِ مليكًا فأشرقتِ ازدهاءً و......».",
+    "options": [
+     "انتصارا",
+     "ازدهارا",
+     "عِمارا",
+     "افتخارا"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اصطدْ كلمةً بمعنى «الأرضُ المخضرّةُ»:",
+    "options": [
+     "الفلكُ",
+     "الروضُ",
+     "التاجُ",
+     "القصورُ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اصطدْ كلمةً بمعنى «تفاخرُ»:",
+    "options": [
+     "يعانقُ",
+     "تحوي",
+     "تُباهي",
+     "تسايرُ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اصطدْ كلمةً بمعنى «يُنافَسُ»:",
+    "options": [
+     "يُبارى",
+     "تحوي",
+     "يعانقُ",
+     "تسايرُ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "اصطدْ كلمةً من الحقلِ المعجميِّ للطبيعةِ:",
+    "options": [
+     "مليكٌ",
+     "وردٌ",
+     "قصورٌ",
+     "تاجٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اصطدْ كلمةً مرتبطةً بلفظةِ «سمتْ»:",
+    "options": [
+     "سماحٌ",
+     "سموٌّ",
+     "سمعٌ",
+     "سمكٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اصطدْ كلمةً مرتبطةً بلفظةِ «صفو»:",
+    "options": [
+     "صفحةٌ",
+     "صفٌّ",
+     "صفاءٌ",
+     "صفيرٌ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "اصطدْ كلمةً مرتبطةً بلفظةِ «مفضّلا»:",
+    "options": [
+     "فضولٌ",
+     "فضلٌ",
+     "فضّةٌ",
+     "فضاءٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اصطدْ كلمةً بديلةً لـ«السامي» في «حسنُها السامي عمارا» لها الإيقاعُ نفسُهُ:",
+    "options": [
+     "الجميلُ جدًّا",
+     "العالي",
+     "الذي يعلو",
+     "الواسعُ الكبيرُ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "اصطدْ كلمةً مرتبطةً بلفظةِ «نضارا»:",
+    "options": [
+     "نظامٌ",
+     "نظيفٌ",
+     "نظرٌ",
+     "نضارةٌ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "اصطدْ معنى «حسبُكَ»:",
+    "options": [
+     "احسبْ",
+     "ظنَّكَ",
+     "حسابُكَ",
+     "يكفيكَ"
+    ],
+    "ans": 3
+   }
+  ]
+ },
+ {
+  "id": "true_false",
+  "title": "صح أم خطأ",
+  "type": "true_false",
+  "desc": "حدد صحة العبارات المتعلقة بـ جنّةُ عُمانَ",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+  "questions": [
+   {
+    "q": "شاعرُ «جنّةُ عمانَ» هو خالد بن مهنا البطاشي.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "خالد البطاشي شاعرٌ عراقيٌّ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "وصفَ الشاعرُ ظفارَ بأنّها جنّةُ الدنيا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "وصفَ الشاعرُ لياليَهُ في ظفارَ بأنّها طويلةٌ مملّةٌ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "شبّهَ الشاعرُ هواءَ ظفارَ بصفوِ الماءِ لطفًا.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«تُباهي» تعني تُخاصمُ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "صلالةُ جنّةُ ظفارَ كما في القصيدةِ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«يُبارى» تعني يُنافَسُ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "يفضّلُ الشاعرُ رُبى لبنانَ على ظفارَ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "قصورُ صلالةَ تكادُ تسايرُ الفلكَ لارتفاعِها.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«سمتْ» تعني انخفضتْ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "ذكرَ الشاعرُ السلطانَ قابوسَ في القصيدةِ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«ازدهاءً وازدهارًا» كلمتانِ متقاربتانِ في الحروفِ والوزنِ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "جذرُ «روضات» هو «ر و ض».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "الحروفُ الزائدةُ في «انتصارا» هي «ن ص ر».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "البيتُ «فشكرًا يا ظفارُ وساكنيها فما زالتْ مغانيكمْ عمارا» يمكنُ أنْ يكونَ من القصيدةِ لتوافقِ قافيتِهِ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "البيتُ «فصلٌ قد اختصّتْ ظفارُ بلطفِهِ وجمالِهِ فلتشكرِ المعبودا» يوافقُ قافيةَ القصيدةِ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "تنتهي أبياتُ القصيدةِ بقافيةِ «ـارا».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "القصيدةُ في محورِ «الوطن».",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«الجُلَّنار» اسمُ طائرٍ.",
+    "options": [
+     "صح",
+     "خطأ"
+    ],
+    "ans": 1
+   }
+  ]
+ },
+ {
+  "id": "genius",
+  "title": "تحدي العباقرة",
+  "type": "genius",
+  "desc": "تحدٍّ سريع بعدّاد زمني للعباقرة فقط",
+  "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z\"></path></svg>",
+  "questions": [
+   {
+    "q": "اشرحِ البيتَ الثالثَ «هواها مثلُ صفوِ الماءِ لطفًا وروضاتٌ تُباهي الخُلدَ دارا»:",
+    "options": [
+     "ظفارُ دارُ الخلودِ للشاعرِ",
+     "هواءُ ظفارَ حارٌّ وحدائقُها قليلةٌ",
+     "هواءُ ظفارَ لطيفٌ صافٍ كالماءِ، وحدائقُها تفاخرُ الجنّةَ جمالًا",
+     "ماءُ ظفارَ عذبٌ فقط"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الصورةُ في «روضاتٌ تُباهي الخلدَ»:",
+    "options": [
+     "لا صورةَ فيها",
+     "شبّهَ الماءَ بالهواءِ",
+     "شبّهَ القصورَ بالفلكِ",
+     "جعلَ الروضاتِ كإنسانٍ يفاخرُ الجنّةَ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "الصورةُ في «فمنْ وردٍ يعانقُ جلّنارا»:",
+    "options": [
+     "شبّهَ الرمّانَ بالقمرِ",
+     "لا صورةَ فيها",
+     "جعلَ الوردَ كإنسانٍ يعانقُ زهرَ الرمّانِ لقربِهما وتداخلِهما",
+     "شبّهَ الوردَ بالنارِ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "دلالةُ «قصورٍ تكادُ تسايرُ الفلكَ المدارا»:",
+    "options": [
+     "بُعدُ القصورِ عن المدينةِ",
+     "صغرُ القصورِ",
+     "قدمُ القصورِ وتهدّمُها",
+     "ارتفاعُ القصورِ وعظمتُها"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "هل وُفّقَ الشاعرُ في وصفِ ظفارَ؟ الأنسبُ:",
+    "options": [
+     "لا؛ لأنّهُ تحدّثَ عن لبنانَ فقط",
+     "نعمْ؛ لأنّهُ ذكرَ الصحراءَ فقط",
+     "نعمْ؛ لأنّهُ ذكرَ طبيعتَها وهواءَها وقصورَها بصورٍ جميلةٍ",
+     "لا؛ لأنّهُ لم يذكرْ شيئًا عنها"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "ما الذي أضافَتْهُ الكلماتُ المتقاربةُ «ازدهاءً وازدهارًا» و«انتصارًا وافتخارًا»؟",
+    "options": [
+     "إيقاعًا موسيقيًّا جميلًا",
+     "طولًا بلا فائدةٍ",
+     "حزنًا",
+     "غموضًا في المعنى"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "لماذا ذكرَ الشاعرُ «لبنان»؟",
+    "options": [
+     "لأنّهُ عاشَ في لبنانَ",
+     "ليذمَّ ظفارَ",
+     "ليفضّلَ ظفارَ على جمالِ لبنانَ المشهورِ",
+     "ليحنَّ إلى لبنانَ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الأبياتُ من (٨) إلى (١٠) تتحدّثُ عن:",
+    "options": [
+     "مجدِ البلادِ وتشريفِها بقائدِها",
+     "هواءِ ظفارَ",
+     "زهورِ الحدائقِ",
+     "لياليهِ القصارِ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلماتٌ مرتبطةٌ بلفظةِ «نضارا»:",
+    "options": [
+     "نصرٌ – ناصرٌ – منصورٌ",
+     "نظرٌ – ناظرٌ – منظرٌ",
+     "نضالٌ – مناضلٌ",
+     "نضارةٌ – نضرٌ – نضيرٌ – ينضرُ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "كلماتٌ مرتبطةٌ بلفظةِ «سمتْ»:",
+    "options": [
+     "سموٌّ – يسمو – سامٍ",
+     "سمكٌ – سمّاكٌ",
+     "سمنٌ – سمينٌ",
+     "سمعٌ – سامعٌ – مسموعٌ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "كلماتٌ مرتبطةٌ بلفظةِ «مُفضّلا»:",
+    "options": [
+     "فضاءٌ – فضائيٌّ",
+     "فضّةٌ – فضّيٌّ",
+     "فضولٌ – فضوليٌّ",
+     "فضلٌ – أفضلُ – فاضلٌ – تفضيلٌ"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "أيُّ البيتينِ يمكنُ أنْ يكونَ من القصيدةِ؟",
+    "options": [
+     "كلاهما",
+     "فصلٌ قد اختصّتْ ظفارُ بلطفِهِ وجمالِهِ فلتشكرِ المعبودا",
+     "لا شيءَ منهما",
+     "فشكرًا يا ظفارُ وساكنيها فما زالتْ مغانيكمْ عمارا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "سببُ اختيارِ البيتِ «فشكرًا يا ظفارُ...»:",
+    "options": [
+     "لأنّهُ يذكرُ المعبودَ",
+     "لأنّهُ أطولُ",
+     "توافقُ القافيةِ «ـارا» معَ القصيدةِ",
+     "لأنّهُ عن لبنانَ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "كلمةٌ من النصِّ جذرُها «ن ص ر» وحروفُها الزائدةُ «ا ت ا»:",
+    "options": [
+     "ناصرًا",
+     "منصور",
+     "نضارا",
+     "انتصارا"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "خمسُ كلماتٍ من الحقلِ المعجميِّ للطبيعةِ في النصِّ:",
+    "options": [
+     "الروضُ – الأزهارُ – الماءُ – حدائقُ – وردٌ",
+     "انتصارًا – افتخارًا – ازدهاءً – عمارًا – مفضّلًا",
+     "الليلاتُ – الفلكُ – الإلهُ – قابوسُ – لبنانُ",
+     "القصورُ – التاجُ – المليكُ – الشرفُ – المجدُ"
+    ],
+    "ans": 0
+   },
+   {
+    "q": "«متى ذكروا رُبى لبنانَ حسنًا ذكرتُ مفضِّلًا عنها ظفارا» محاكاةُ التركيبِ «متى... ذكرتُ»:",
+    "options": [
+     "ذكرتُ ظفارَ",
+     "متى ذهبتَ؟",
+     "متى ذكروا الوفاءَ ذكرتُ أمّي",
+     "ذكروا لبنانَ"
+    ],
+    "ans": 2
+   },
+   {
+    "q": "الشعورُ المسيطرُ على الشاعرِ في القصيدةِ:",
+    "options": [
+     "الغضبُ",
+     "الإعجابُ والفخرُ",
+     "الحزنُ",
+     "الخوفُ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "في البيتِ الأوّلِ «بنفسي جنّةَ الدنيا» يعبّرُ الشاعرُ عن:",
+    "options": [
+     "رغبتِهِ في السفرِ",
+     "كرهِهِ لظفارَ",
+     "خوفِهِ منها",
+     "حبّهِ الشديدِ لظفارَ وفدائِهِ لها"
+    ],
+    "ans": 3
+   },
+   {
+    "q": "«حسبُكَ حسنُها السامي عمارا» تعني:",
+    "options": [
+     "لا عمرانَ فيها",
+     "يكفيكَ جمالُها العالي عمرانًا",
+     "احسبْ عددَ بيوتِها",
+     "حسنُها قليلٌ"
+    ],
+    "ans": 1
+   },
+   {
+    "q": "الغرضُ الأساسيُّ للقصيدةِ:",
+    "options": [
+     "الرثاءُ",
+     "الوصفُ والفخرُ بالوطنِ",
+     "الحكمةُ",
+     "الهجاءُ"
+    ],
+    "ans": 1
+   }
+  ]
+ }
+];
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let shootIntervals = [];
+    function clearShoot(){ shootIntervals.forEach(clearInterval); shootIntervals = []; }
+    let geniusTimerInterval = null;
+    let wrongAnswers = []; // مصفوفة لتخزين الأخطاء
+
+    // --- التهيئة ---
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval); clearShoot(); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="share-box">
+                    <h4>📲 أرسل نتيجتك إلى أ. ميار غانم</h4>
+                    <input type="text" id="student-name-input" class="share-name-input" placeholder="اكتب اسمك هنا أولًا">
+                    <div id="share-warning" class="share-warning">من فضلك اكتب اسمك أولًا قبل الإرسال ✋</div>
+                    <div>
+                        <button class="btn btn-share" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                            إرسال النتيجة عبر واتساب
+                        </button>
+                    </div>
+                </div>
+                <button class="btn back-btn" style="font-size:1.1rem; padding:15px 30px; margin-top: 18px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('share-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.classList.add('shake');
+            nameInput.focus();
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const gameTitle = currentGame ? currentGame.title : '';
+        const message =
+            `📚 نتيجة طالب - ${LESSON_NAME}\n` +
+            `👩‍🏫 أ. ميار غانم - مدرسة دار المستقبل الخاصة\n` +
+            `👤 اسم الطالب: ${name}\n` +
+            `🎮 اللعبة: ${gameTitle}\n` +
+            `✅ النتيجة: ${score} من ${total}\n` +
+            `⭐ نسبة النجاح: ${Math.round((score/total)*100)}%`;
+        const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]);
+        qIndex = 0;
+        wrongAnswers = []; // تصفير قائمة الأخطاء
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // --- أنماط الألعاب ---
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        clearInterval(geniusTimerInterval); clearShoot();
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        clearInterval(geniusTimerInterval); clearShoot();
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 5. تحدي العباقرة (سؤال بعدّاد زمني)
+    function renderGenius(container) {
+        clearInterval(animInterval); clearShoot(); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'genius-wrap';
+
+        const badge = document.createElement('div');
+        badge.className = 'genius-badge';
+        badge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z"></path></svg> تحدي العباقرة`;
+
+        const timerTrack = document.createElement('div');
+        timerTrack.className = 'genius-timer-track';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerTrack.appendChild(timerBar);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.style.background = 'rgba(255,255,255,0.95)';
+        qBox.innerText = qData.q;
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'genius-options';
+
+        let isAnswered = false;
+        const TOTAL_TIME = 12000; // 12 ثانية لكل سؤال
+        let startTime = Date.now();
+
+        function finishQuestion(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(geniusTimerInterval);
+            if (!isCorrect) {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت!" });
+            }
+            showFeedback(isCorrect, () => { qIndex++; renderNextState(); });
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finishQuestion(true, opt);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finishQuestion(false, opt);
+                }
+            };
+            optContainer.appendChild(btn);
+        });
+
+        wrap.appendChild(badge);
+        wrap.appendChild(timerTrack);
+        container.appendChild(wrap);
+        container.appendChild(qBox);
+        container.appendChild(optContainer);
+
+        geniusTimerInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(geniusTimerInterval); return; }
+            const elapsed = Date.now() - startTime;
+            const pct = Math.max(0, 100 - (elapsed / TOTAL_TIME) * 100);
+            timerBar.style.width = pct + '%';
+            if (elapsed >= TOTAL_TIME) {
+                clearInterval(geniusTimerInterval);
+                finishQuestion(false, null);
+            }
+        }, 80);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval); clearShoot(); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.95 + Math.random() * 0.65; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval); clearShoot(); clearInterval(geniusTimerInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearShoot(); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearShoot(); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            shootIntervals.push(setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 20));
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!`;
+        container.appendChild(hint);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>

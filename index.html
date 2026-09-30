@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أ. ميار غانم - اللغة العربية - مدرسة دار المستقبل الخاصة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+:root{--primary:#1b4f9c;--primary-light:#2f6fd0;--gold:#f08a24;--dark:#1e293b;}
+*{box-sizing:border-box;font-family:'Cairo',Tahoma,sans-serif;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background-color:#eef5ff;background-image:radial-gradient(#c7d7f2 1.5px,transparent 1.5px);background-size:25px 25px;color:var(--dark);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+a{color:inherit}
+.header-main{background:linear-gradient(135deg,#0d2a5c,var(--primary),#1e7b3a);color:#fff;padding:26px 16px 90px;text-align:center;position:relative}
+.header-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.hero{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
+.teacher-logo{width:230px;height:230px;border-radius:30px;border:4px solid var(--gold);box-shadow:0 8px 16px rgba(0,0,0,.4);background:#fff;object-fit:cover;object-position:top}
+@media(max-width:600px){.teacher-logo{width:160px;height:160px}}
+.hero-text{display:flex;flex-direction:column;align-items:center}
+.t1{font-size:clamp(1.05rem,4vw,1.45rem);font-weight:700;color:#fff1e0;margin-bottom:4px}
+.t2{font-size:clamp(1.6rem,6vw,2.8rem);font-weight:900;background:linear-gradient(to right,#fed7aa,#ea7b1c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(2px 4px 6px rgba(0,0,0,.5));line-height:1.35;margin-bottom:10px}
+.pill{font-size:clamp(.9rem,2.5vw,1.1rem);font-weight:600;background:rgba(0,0,0,.3);display:inline-block;padding:6px 20px;border-radius:30px;border:1px solid rgba(255,255,255,.15)}
+.header-wave{position:absolute;bottom:-1px;left:0;width:100%;z-index:1}
+.top-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.nav-pill{color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;background:rgba(255,255,255,.12);border:1px solid rgba(240,138,36,.6);padding:6px 16px;border-radius:30px}
+.nav-pill:hover{background:rgba(240,138,36,.3)}
+main{flex:1;width:100%;max-width:1100px;margin:0 auto;padding:10px 16px 90px}
+.grade-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.grade-card{display:block;text-decoration:none;background:#fff;border-radius:22px;padding:30px 20px;text-align:center;box-shadow:0 10px 20px -5px rgba(27,79,156,.12);border:2px solid transparent;transition:all .3s cubic-bezier(.175,.885,.32,1.275);position:relative;overflow:hidden}
+.grade-card::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(90deg,var(--primary),var(--gold))}
+.grade-card:hover{transform:translateY(-8px);border-color:rgba(240,138,36,.5);box-shadow:0 20px 25px -5px rgba(27,79,156,.2)}
+.grade-num{width:90px;height:90px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(135deg,#fff1e0,#fed7aa);display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:900;color:var(--primary);box-shadow:inset 0 3px 6px rgba(255,255,255,.8),0 4px 8px rgba(0,0,0,.06)}
+.grade-card h3{font-size:1.5rem;font-weight:900;color:var(--primary);margin-bottom:6px}
+.grade-card p{color:#64748b;font-weight:600}
+.grade-card .go{display:inline-block;margin-top:14px;background:linear-gradient(to bottom,var(--primary-light),var(--primary));color:#fff;padding:9px 22px;border-radius:12px;font-weight:700;border-bottom:3px solid rgba(0,0,0,.3)}
+.section-title{font-size:1.3rem;font-weight:800;color:var(--primary);text-align:center;margin:6px 0 22px}
+.unit{background:#fff;border-radius:22px;box-shadow:0 10px 20px -5px rgba(27,79,156,.1);margin-bottom:28px;overflow:hidden}
+.unit-head{background:linear-gradient(135deg,var(--primary),var(--primary-light));color:#fff;padding:16px 22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.unit-head .u-no{background:var(--gold);color:#0d2a5c;font-weight:900;padding:4px 14px;border-radius:20px}
+.unit-head h2{font-size:clamp(1.15rem,3.5vw,1.5rem);font-weight:900}
+.unit-body{padding:18px 18px 8px}
+.lesson-group{margin-bottom:16px}
+.lesson-group h3{font-size:1.05rem;font-weight:800;color:#475569;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.lesson-group h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--gold)}
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.lesson-link{display:flex;align-items:center;gap:12px;text-decoration:none;background:#f8f9ff;border:2px solid #dbe6f8;border-radius:14px;padding:12px 14px;transition:all .2s}
+.lesson-link:hover{background:#fff;border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 14px rgba(27,79,156,.12)}
+.ic{flex-shrink:0;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff}
+.lt{display:flex;flex-direction:column;min-width:0}
+.lt small{font-weight:800;font-size:.85rem}
+.lt span{font-weight:700;color:var(--dark);line-height:1.5}
+.footer-main{background:var(--dark);color:#cbd5e1;text-align:center;padding:24px 16px;border-top:4px solid var(--gold)}
+.footer-main p{margin:4px 0;font-size:1.05rem;font-weight:600}
+.footer-main .designer{font-size:.95rem;color:#94a3b8;font-weight:400}
+.teacher-logo{object-fit:contain;padding:6px}.school{display:inline-block;font-size:clamp(.95rem,3vw,1.15rem);font-weight:800;color:#fff;background:rgba(30,123,58,.85);border:1px solid rgba(255,255,255,.25);padding:4px 18px;border-radius:30px;margin-bottom:10px}
+</style>
+</head>
+<body>
+<header class="header-main"><div class="header-content">
+<div class="hero"><img src="assets/logo.jpg" alt="مدرسة دار المستقبل الخاصة" class="teacher-logo">
+<div class="hero-text"><div class="t1">اللغة العربية للصفين الخامس والسادس مع</div><h1 class="t2">أ. ميار غانم</h1><span class="school">مدرسة دار المستقبل الخاصة</span><span class="pill">دروس وألعاب تفاعلية · الفصل الدراسي الأول</span></div></div>
+</div><svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="height:80px"><path fill="#eef5ff" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L0,320Z"></path></svg></header>
+<main><p class="section-title">اختر صفّك الدراسي وابدأ التعلّم باللعب 🎮</p><div class="grade-grid"><a class="grade-card" href="grade5/index.html"><div class="grade-num">٥</div><h3>الصف الخامس</h3><p>8 درسًا تفاعليًّا · اللغة العربية · الفصل الدراسي الأول</p><span class="go">ادخل الدروس ←</span></a><a class="grade-card" href="grade6/index.html"><div class="grade-num">٦</div><h3>الصف السادس</h3><p>14 درسًا تفاعليًّا · اللغة العربية · الفصل الدراسي الأول</p><span class="go">ادخل الدروس ←</span></a></div></main>
+<footer class="footer-main"><p>جميع الحقوق محفوظة &copy; | دروس وألعاب تعليمية في اللغة العربية</p><p class="designer">أ. ميار غانم — مدرسة دار المستقبل الخاصة</p></footer>
+</body></html>
